@@ -1,20 +1,4 @@
-import Animal from "../animals.js";
 import Dog from "./Dog.js";
-
-	//Animal  constructor(name, age, lifespan) {
-	// 	this.name = name
-	// 	this.age = age
-	// 	this.lifespan = lifespan
-    // }
-    
-    // makeSound() {
-    //     return `${this.name} speaks`
-    // }
-// class Dogs extends Animal {
-//     constructor(name, age, lifespan, race) {
-//         super(name, age, lifespan)
-//         this.race = race
-//     }
 
 class Poodle extends Dog {
     #poodleStock
@@ -28,14 +12,19 @@ class Poodle extends Dog {
         this.#poodleStock += num
     }
     poodleStockDec(num) {
-        this.poodleStock -= num
+        this.#poodleStock -= num
     }
     
     poodleSpeak() {
         return `${this.dogSpeak()}`
     }
+    get poodleStock() {
+        return this.#poodleStock 
+    }
 }
 
-const np = new Poodle('Jack', 3, 15, 'Poodle')
-console.log(np.poodleSpeak());
+// const np = new Poodle('Jack', 3, 15, 'Poodle')
+// console.log(np.poodleSpeak());
+// np.poodleStockDec(2)
+// console.log(np.poodleStock);
 export default Poodle

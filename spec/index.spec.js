@@ -1,6 +1,7 @@
 import Animal from "../src/animals.js"
 import Dog from "../src/Dogs/Dog.js"
 import Poodle from "../src/Dogs/Poodle.js"
+import Husky from "../src/Dogs/Husky.js"
 
 describe("Animal", () => {
 	let newAnimal
@@ -78,7 +79,7 @@ describe("Husky", () => {
 	let newHusky
 
 	beforeEach(() => {
-		newHusky = new newHusky("Husk", 3, 13)
+		newHusky = new Husky("Husk", 3, 13)
 	})
 	it("should exist as an instance of Husky", () => {
 		expect(newHusky).toBeInstanceOf(Husky)
@@ -89,8 +90,8 @@ describe("Husky", () => {
 	})
 
 	it("should be able to speak and say Woof, it's breed and it's name", () => {
-		expect(newHusky.HuskySpeak()).toBe(
-			"Husk speaks! Husk the Huskle, says Woof!"
+		expect(newHusky.huskySpeak()).toBe(
+			"Husk speaks! Husk the Husky, says Woof!"
 		)
 	})
 })
