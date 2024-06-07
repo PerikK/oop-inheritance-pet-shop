@@ -5,7 +5,6 @@ class Dog extends Animal {
     #currentDogsCapacity
 	constructor(name, age, lifespan, dogsCapacity = 100) {
 		super(name, age, lifespan)
-		// this.breed = breed
         this.#dogsCapacity = dogsCapacity
         this.#currentDogsCapacity = dogsCapacity
 	}
@@ -28,9 +27,9 @@ class Dog extends Animal {
     }
 }
 
-const dg = new Dog('Doggo', 3, 13)
+// const dg = new Dog('Doggo', 3, 13)
 
-console.log(dg.dogSpeak());
+// console.log(dg.dogSpeak());
 // dg.dogsCapacityIncrease(50);
 // console.log(dg.dogsCapacity);
 

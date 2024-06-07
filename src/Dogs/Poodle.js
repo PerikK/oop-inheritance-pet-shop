@@ -38,3 +38,4 @@ class Poodle extends Dog {
 
 const np = new Poodle('Jack', 3, 15, 'Poodle')
 console.log(np.poodleSpeak());
+export default Poodle

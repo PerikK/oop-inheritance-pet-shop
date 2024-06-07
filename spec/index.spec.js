@@ -1,5 +1,6 @@
 import Animal from "../src/animals.js"
 import Dog from "../src/Dogs/Dog.js"
+import Poodle from "../src/Dogs/Poodle.js"
 
 describe("Animal", () => {
 	let newAnimal
@@ -33,14 +34,14 @@ describe("Dog", () => {
 	let newDog
 
 	beforeEach(() => {
-		newDog = new Dog("Doggo", 1, 11, "Poodle")
+		newDog = new Dog("Doggo", 1, 11)
 	})
 
 	it("should exist as an instance of Dog", () => {
 		expect(newDog).toBeInstanceOf(Dog)
 	})
 
-	it("should be a dog with name, age lifespan and breed", () => {
+	it("should be a dog with name, age and lifespan", () => {
 		expect(newDog.name).toBe("Doggo")
 	})
 
@@ -48,6 +49,28 @@ describe("Dog", () => {
         
 		expect(newDog.dogSpeak()).toBe(
 			"Doggo speaks! Doggo the Dog, says Woof!"
+		)
+	})
+})
+
+describe('Poodle', () => {
+	let newPoodle
+
+	beforeEach(() => {
+		newPoodle = new Poodle('Pood',3,16)
+	})
+
+	it('should exist as an instance of Poodle', ()=> {
+		expect(newPoodle).toBeInstanceOf(Poodle)
+	})
+
+	it('should be A Poodle with name, age and lifespan', () => {
+		expect(newPoodle.name).toBe('Pood')
+	})
+
+	it("should be able to speak and say Woof, it's breed and it's name", () => {
+		expect(newPoodle.poodleSpeak()).toBe(
+			"Pood speaks! Pood the Poodle, says Woof!"
 		)
 	})
 })
