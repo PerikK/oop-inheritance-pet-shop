@@ -45,32 +45,52 @@ describe("Dog", () => {
 		expect(newDog.name).toBe("Doggo")
 	})
 
-    it("should be able to make a dog sound", () => {
-        
+	it("should be able to make a dog sound", () => {
 		expect(newDog.dogSpeak()).toBe(
 			"Doggo speaks! Doggo the Dog, says Woof!"
 		)
 	})
 })
 
-describe('Poodle', () => {
+describe("Poodle", () => {
 	let newPoodle
 
 	beforeEach(() => {
-		newPoodle = new Poodle('Pood',3,16)
+		newPoodle = new Poodle("Pood", 3, 16)
 	})
 
-	it('should exist as an instance of Poodle', ()=> {
+	it("should exist as an instance of Poodle", () => {
 		expect(newPoodle).toBeInstanceOf(Poodle)
 	})
 
-	it('should be A Poodle with name, age and lifespan', () => {
-		expect(newPoodle.name).toBe('Pood')
+	it("should be a Poodle with name, age and lifespan", () => {
+		expect(newPoodle.name).toBe("Pood")
 	})
 
 	it("should be able to speak and say Woof, it's breed and it's name", () => {
 		expect(newPoodle.poodleSpeak()).toBe(
 			"Pood speaks! Pood the Poodle, says Woof!"
+		)
+	})
+})
+
+describe("Husky", () => {
+	let newHusky
+
+	beforeEach(() => {
+		newHusky = new newHusky("Husk", 3, 13)
+	})
+	it("should exist as an instance of Husky", () => {
+		expect(newHusky).toBeInstanceOf(Husky)
+	})
+
+	it("should be a Husky with name, age and lifespan", () => {
+		expect(newHusky.name).toBe("Husk")
+	})
+
+	it("should be able to speak and say Woof, it's breed and it's name", () => {
+		expect(newHusky.HuskySpeak()).toBe(
+			"Husk speaks! Husk the Huskle, says Woof!"
 		)
 	})
 })
