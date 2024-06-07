@@ -18,8 +18,8 @@ import Dog from "./Dog.js";
 
 class Poodle extends Dog {
     #poodleStock
-    constructor(name, age, lifespan, breed, dogsCapacity, poodleStock) {
-        super(name, age, lifespan, breed, dogsCapacity)
+    constructor(name, age, lifespan, dogsCapacity, poodleStock) {
+        super(name, age, lifespan, dogsCapacity)
         this.#poodleStock = 10
     }
 

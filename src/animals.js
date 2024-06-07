@@ -7,7 +7,7 @@ class Animal {
     }
     
     makeSound() {
-        return `${this.name} speaks`
+        return `${this.name} speaks!`
     }
 }
 

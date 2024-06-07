@@ -3,15 +3,17 @@ import Animal from "../animals.js";
 class Dog extends Animal {
     #dogsCapacity
     #currentDogsCapacity
-	constructor(name, age, lifespan, breed, dogsCapacity = 100) {
+	constructor(name, age, lifespan, dogsCapacity = 100) {
 		super(name, age, lifespan)
-		this.breed = breed
+		// this.breed = breed
         this.#dogsCapacity = dogsCapacity
         this.#currentDogsCapacity = dogsCapacity
 	}
 
 	dogSpeak() {
-		return `${super.makeSound()}! ${this.name} the ${this.breed}, says Woof!`
+		return `${this.makeSound()} ${this.name} the ${
+			this.constructor.name
+		}, says Woof!`
 	}
 
 	dogsCapacityIncrease(num) {
@@ -26,9 +28,9 @@ class Dog extends Animal {
     }
 }
 
-// const dg = new Dogs('Doggo', 3, 13)
+const dg = new Dog('Doggo', 3, 13)
 
-// console.log(dg.dogSpeak());
+console.log(dg.dogSpeak());
 // dg.dogsCapacityIncrease(50);
 // console.log(dg.dogsCapacity);
 
