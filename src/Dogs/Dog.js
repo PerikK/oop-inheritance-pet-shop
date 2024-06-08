@@ -1,12 +1,12 @@
-import Animal from "../animals.js";
+import Animal from "../animals.js"
 
 class Dog extends Animal {
-    #dogsCapacity
-    #currentDogsCapacity
+	#dogsCapacity
+	#currentDogsCapacity
 	constructor(name, age, lifespan, dogsCapacity = 100) {
 		super(name, age, lifespan)
-        this.#dogsCapacity = dogsCapacity
-        this.#currentDogsCapacity = dogsCapacity
+		this.#dogsCapacity = dogsCapacity
+		this.#currentDogsCapacity = dogsCapacity
 	}
 
 	dogSpeak() {
@@ -20,17 +20,11 @@ class Dog extends Animal {
 	}
 	dogsCapacityDecrease(num) {
 		this.#dogsCapacity -= num
-    }
-    
-    get currentDogCapacity() {
-        return this.#currentDogsCapacity
-    }
+	}
+
+	get currentDogsCapacity() {
+		return this.#currentDogsCapacity
+	}
 }
-
-// const dg = new Dog('Doggo', 3, 13)
-
-// console.log(dg.dogSpeak());
-// dg.dogsCapacityIncrease(50);
-// console.log(dg.dogsCapacity);
 
 export default Dog

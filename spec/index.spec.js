@@ -2,6 +2,8 @@ import Animal from "../src/animals.js"
 import Dog from "../src/Dogs/Dog.js"
 import Poodle from "../src/Dogs/Poodle.js"
 import Husky from "../src/Dogs/Husky.js"
+import Cat from "../src/Cats/Cat.js"
+import Persian from "../src/Cats/Persian.js"
 
 describe("Animal", () => {
 	let newAnimal
@@ -92,6 +94,49 @@ describe("Husky", () => {
 	it("should be able to speak and say Woof, it's breed and it's name", () => {
 		expect(newHusky.huskySpeak()).toBe(
 			"Husk speaks! Husk the Husky, says Woof!"
+		)
+	})
+})
+
+describe("Cat", () => {
+	let newCat
+
+	beforeEach(() => {
+		newCat = new Cat("Felix", 1, 11)
+	})
+
+	it("should exist as an instance of Cat", () => {
+		expect(newCat).toBeInstanceOf(Cat)
+	})
+
+	it("should be a cat with name, age and lifespan", () => {
+		expect(newCat.name).toBe("Felix")
+	})
+
+	it("should be able to make a Cat sound", () => {
+		expect(newCat.catSpeak()).toBe(
+			"Felix speaks! Felix the Cat, says Meeewww!"
+		)
+	})
+})
+
+describe("Persian", () => {
+	let newPersian
+
+	beforeEach(() => {
+		newPersian = new Persian("Persy", 3, 13)
+	})
+	it("should exist as an instance of Perisan", () => {
+		expect(newPersian).toBeInstanceOf(Persian)
+	})
+
+	it("should be a Persian with name, age and lifespan", () => {
+		expect(newPersian.name).toBe("Persy")
+	})
+
+	it("should be able to speak and say Woof, it's breed and it's name", () => {
+		expect(newPersian.persianSpeak()).toBe(
+			"Persy speaks! Persy the Persian, says Meeewww!"
 		)
 	})
 })
