@@ -15,12 +15,22 @@ import Koi from "./Fish/Koi.js"
 class Pet_Shop {
 	constructor(area) {
 		this.area = area
-		this.pets = []
 		this.dogsCapacity = {}
 		this.birdsCapacity = {}
 		this.catsCapacity = {}
 		this.fishCapacity = {}
+		this.pets = []
 
+		this.constructors = {
+			Husky: Husky,
+			Poodle: Poodle,
+			Siamese: Siamese,
+			Persian: Persian,
+			Parrot: Parrot,
+			Finch: Finch,
+			Goldfish: Goldfish,
+			Koi: Koi,
+		}
 		switch (true) {
 			case area < 150:
 				throw new Error("Not enough space for a pet-shop")
@@ -75,13 +85,150 @@ class Pet_Shop {
 				throw new Error("Area must be provided")
 		}
 	}
+
+	checkCapacity(spec_breed) {
+		const sb =
+			spec_breed.charAt(0).toUpperCase() + spec_breed.slice(1)
+		let capacityCategory
+
+		switch (sb.toLowerCase()) {
+			case "poodle":
+			case "husky":
+				capacityCategory = this.dogsCapacity
+				break
+			case "persian":
+			case "siamese":
+				capacityCategory = this.catsCapacity
+				break
+			case "parrot":
+			case "finch":
+				capacityCategory = this.birdsCapacity
+				break
+			case "goldfish":
+			case "koi":
+				capacityCategory = this.fishCapacity
+				break
+			default:
+				throw new Error(`No capacity found for ${sb}`)
+		}
+
+		if (capacityCategory[sb.toLowerCase()] <= 0) {
+			throw new Error(`There is no more space for a ${sb}`)
+		}
+	}
+
+	decreaseCapacity(spec_breed) {
+		const sb =
+			spec_breed.charAt(0).toUpperCase() + spec_breed.slice(1)
+		let capacityCategory
+
+		switch (sb.toLowerCase()) {
+			case "poodle":
+			case "husky":
+				capacityCategory = this.dogsCapacity
+				break
+			case "persian":
+			case "siamese":
+				capacityCategory = this.catsCapacity
+				break
+			case "parrot":
+			case "finch":
+				capacityCategory = this.birdsCapacity
+				break
+			case "goldfish":
+			case "koi":
+				capacityCategory = this.fishCapacity
+				break
+			default:
+				throw new Error(`No capacity found for ${sb}`)
+		}
+
+		if (capacityCategory[sb.toLowerCase()] <= 0) {
+			throw new Error(`There is no more space for a ${sb}`)
+		}
+
+		capacityCategory[sb.toLowerCase()]--
+	}
+
+	increaseCapacity(spec_breed) {
+		const sb =
+			spec_breed.charAt(0).toUpperCase() + spec_breed.slice(1)
+		let capacityCategory
+
+		switch (sb.toLowerCase()) {
+			case "poodle":
+			case "husky":
+				capacityCategory = this.dogsCapacity
+				break
+			case "persian":
+			case "siamese":
+				capacityCategory = this.catsCapacity
+				break
+			case "parrot":
+			case "finch":
+				capacityCategory = this.birdsCapacity
+				break
+			case "goldfish":
+			case "koi":
+				capacityCategory = this.fishCapacity
+				break
+			default:
+				throw new Error(`No capacity found for ${sb}`)
+		}
+
+		capacityCategory[sb.toLowerCase()]++
+	}
+
+	addPet(name, age, ls, spec_breed) {
+		try {
+			if (!spec_breed) {
+				throw new Error("Species / breed must be provided")
+			}
+
+			if (typeof spec_breed !== "string") {
+				throw new Error("Species / breed must be a string")
+			}
+
+			this.checkCapacity(spec_breed)
+
+			this.decreaseCapacity(spec_breed)
+
+			const sb =
+				spec_breed.charAt(0).toUpperCase() + spec_breed.slice(1)
+			const Constructor = this.constructors[sb]
+
+			if (!Constructor) {
+				throw new Error(
+					`${this.constructor.name} does not stock ${sb}`
+				)
+			}
+
+			const newPet = new Constructor(name, age, ls, spec_breed)
+			this.pets.push(newPet)
+		} catch (error) {
+			throw new Error(error.message)
+		}
+	}
 }
 
-// const ps = new Pet_Shop(111)
+export default Pet_Shop
 
+// const ps = new Pet_Shop(211)
 // console.log(ps.maxPetCapacity)
 // console.log(ps.birdsCapacity.finch)
-
 // console.log(ps.log());
 
-export default Pet_Shop
+// ps.addPet("test2", 3, 16, "huy")
+
+// ps.addPet('test2', 3, 16, 'husky')
+// ps.addPet('test2', 3, 16, 'husky')
+// ps.addPet('test2', 3, 16, 'husky')
+// ps.addPet('test2', 3, 16, 'husky')
+// ps.addPet('test2', 3, 16, 'husky')
+
+// ps.addPet('test', 3, 16, 'poodle')
+
+// console.log(ps.pets);
+// console.log(ps.pets[0]);
+// console.log(ps.dogsCapacity);
+// console.log(ps.addPet());

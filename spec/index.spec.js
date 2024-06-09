@@ -153,7 +153,7 @@ describe("Pet-shop", () => {
 		expect(newShop).toBeInstanceOf(Pet_Shop)
 	})
 
-	it("should have different pet-holding-capacity depending to the area provided upon creation", () => {
+	it("should have different pet-holding-capacity depending on the area provided upon creation", () => {
 		expect(newShop.maxPetCapacity).toBe(150)
 
 		let newShop2 = new Pet_Shop(333)
@@ -180,4 +180,48 @@ describe("Pet-shop", () => {
 		let newShop3 = new Pet_Shop(150)
 		expect(newShop3.dogsCapacity.poodle).toBe(7)
 	})
+
+	it('should be able to add a new pet', () => {
+		newShop.addPet("pood", 1, 15, "poodle")
+		expect(newShop.pets.length).toBe(1)
+		expect(newShop.pets[0].name).toBe('pood')
+		expect(newShop.pets[0].breed).toBe('Poodle')
+	})
+
+	it('should decrease the breed / species capacity when a new pet is added', () => {
+		expect(newShop.dogsCapacity.poodle).toBe(10)
+
+		newShop.addPet("pood", 1, 15, "poodle")
+		expect(newShop.dogsCapacity.poodle).toBe(9)
+	})
+
+	it('should throw an error when trying to add a pet when there is no more capacity for it', () => {
+		newShop.addPet("Hewy", 3, 16, "husky")
+		expect(newShop.dogsCapacity.husky).toBe(4)
+		newShop.addPet("Hewy", 3, 16, "husky")
+		newShop.addPet("Hewy", 3, 16, "husky")
+		newShop.addPet("Hewy", 3, 16, "husky")
+		expect(newShop.dogsCapacity.husky).toBe(1)
+		newShop.addPet("Hewy", 3, 16, "husky")
+		expect(newShop.dogsCapacity.husky).toBe(0)
+		expect(newShop.pets.length).toBe(5)
+		expect(() => newShop.addPet("Hewy", 3, 16, "husky")).toThrowError('There is no more space for a Husky')
+
+		//check that although there is no more capacity for Huskies, Poodles or other pets can still be added
+		expect(newShop.pets.length).toBe(5)
+		expect(newShop.dogsCapacity.poodle).toBe(10)
+		newShop.addPet("Pood", 1, 15, "poodle")
+		expect(newShop.dogsCapacity.poodle).toBe(9)
+		expect(newShop.pets.length).toBe(6)
+
+		expect(newShop.catsCapacity.persian).toBe(15)
+		newShop.addPet("Persy", 1, 15, "persian")
+		expect(newShop.pets.length).toBe(7)
+		expect(newShop.catsCapacity.persian).toBe(14)
+	})
+	
+
+
+
+
 })
