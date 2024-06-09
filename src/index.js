@@ -213,22 +213,4 @@ class Pet_Shop {
 
 export default Pet_Shop
 
-// const ps = new Pet_Shop(211)
-// console.log(ps.maxPetCapacity)
-// console.log(ps.birdsCapacity.finch)
-// console.log(ps.log());
 
-// ps.addPet("test2", 3, 16, "huy")
-
-// ps.addPet('test2', 3, 16, 'husky')
-// ps.addPet('test2', 3, 16, 'husky')
-// ps.addPet('test2', 3, 16, 'husky')
-// ps.addPet('test2', 3, 16, 'husky')
-// ps.addPet('test2', 3, 16, 'husky')
-
-// ps.addPet('test', 3, 16, 'poodle')
-
-// console.log(ps.pets);
-// console.log(ps.pets[0]);
-// console.log(ps.dogsCapacity);
-// console.log(ps.addPet());
