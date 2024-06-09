@@ -1,12 +1,12 @@
 import Bird from "./Bird.js"
 
-class Sparrow extends Bird {
+class Finch extends Bird {
 	constructor(name, age, lifespan) {
 		super(name, age, lifespan)
 	}
-	sparrowSpeak() {
+	finchSpeak() {
 		return `${this.birdSpeak()}`
 	}
 }
 
-export default Sparrow
+export default Finch

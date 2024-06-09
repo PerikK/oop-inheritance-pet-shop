@@ -1,6 +1,6 @@
 import Fish from "./Fish.js"
 
-class Salmon extends Fish {
+class Koi extends Fish {
 	constructor(name, age, lifespan) {
 		super(name, age, lifespan)
 	}
@@ -10,4 +10,4 @@ class Salmon extends Fish {
 	}
 }
 
-export default Salmon
+export default Koi

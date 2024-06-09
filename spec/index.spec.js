@@ -4,6 +4,7 @@ import Poodle from "../src/Dogs/Poodle.js"
 import Husky from "../src/Dogs/Husky.js"
 import Cat from "../src/Cats/Cat.js"
 import Persian from "../src/Cats/Persian.js"
+import Pet_Shop from "../src/index.js"
 
 describe("Animal", () => {
 	let newAnimal
@@ -138,5 +139,45 @@ describe("Persian", () => {
 		expect(newPersian.persianSpeak()).toBe(
 			"Persy speaks! Persy the Persian, says Meeewww!"
 		)
+	})
+})
+
+describe("Pet-shop", () => {
+	let newShop
+
+	beforeEach(() => {
+		newShop = new Pet_Shop(234)
+	})
+
+	it("should be an instance of Pet_Shop", () => {
+		expect(newShop).toBeInstanceOf(Pet_Shop)
+	})
+
+	it("should have different pet-holding-capacity depending to the area provided upon creation", () => {
+		expect(newShop.maxPetCapacity).toBe(150)
+
+		let newShop2 = new Pet_Shop(333)
+		expect(newShop2.maxPetCapacity).toBe(200)
+	})
+
+	it("should throw an error if very small or no area provided", () => {
+		let newShop2
+		let newShop3
+		expect(() => (newShop2 = new Pet_Shop(111))).toThrowError(
+			"Not enough space for a pet-shop"
+		)
+		expect(() => (newShop3 = new Pet_Shop())).toThrowError(
+			"Area must be provided"
+		)
+	})
+
+	it("should have different capacities for pets depending on their breed=species and the shop area", () => {
+		expect(newShop.dogsCapacity.poodle).toBe(10)
+
+		let newShop2 = new Pet_Shop(333)
+		expect(newShop2.dogsCapacity.poodle).toBe(15)
+
+		let newShop3 = new Pet_Shop(150)
+		expect(newShop3.dogsCapacity.poodle).toBe(7)
 	})
 })
