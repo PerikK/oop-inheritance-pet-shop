@@ -31,58 +31,53 @@ class Pet_Shop {
 			Goldfish: Goldfish,
 			Koi: Koi,
 		}
-		switch (true) {
-			case area < 150:
-				throw new Error("Not enough space for a pet-shop")
-			case area <= 200:
-				this.maxPetCapacity = 100
+		
+		if (area < 150) {
+			throw new Error("Not enough space for a pet-shop")
+		} else if (area <= 200) {
+			this.maxPetCapacity = 100
 
-				this.dogsCapacity.poodle = 7
-				this.dogsCapacity.husky = 3
+			this.dogsCapacity.poodle = 7
+			this.dogsCapacity.husky = 3
 
-				this.catsCapacity.persian = 10
-				this.catsCapacity.siamese = 10
+			this.catsCapacity.persian = 10
+			this.catsCapacity.siamese = 10
 
-				this.birdsCapacity.parrot = 15
-				this.birdsCapacity.finch = 20
+			this.birdsCapacity.parrot = 15
+			this.birdsCapacity.finch = 20
 
-				this.fishCapacity.goldfish = 25
-				this.fishCapacity.koi = 10
-				break
-			case area <= 300:
-				this.maxPetCapacity = 150
+			this.fishCapacity.goldfish = 25
+			this.fishCapacity.koi = 10
+		} else if (area <= 300) {
+			this.maxPetCapacity = 150
 
-				this.dogsCapacity.poodle = 10
-				this.dogsCapacity.husky = 5
+			this.dogsCapacity.poodle = 10
+			this.dogsCapacity.husky = 5
 
-				this.catsCapacity.persian = 15
-				this.catsCapacity.siamese = 15
+			this.catsCapacity.persian = 15
+			this.catsCapacity.siamese = 15
 
-				this.birdsCapacity.parrot = 23
-				this.birdsCapacity.finch = 30
+			this.birdsCapacity.parrot = 23
+			this.birdsCapacity.finch = 30
 
-				this.fishCapacity.goldfish = 40
-				this.fishCapacity.koi = 20
-				break
-			case area > 300:
-				this.maxPetCapacity = 200
+			this.fishCapacity.goldfish = 40
+			this.fishCapacity.koi = 20
+		} else if (area > 300) {
+			this.maxPetCapacity = 200
 
-				this.dogsCapacity.poodle = 15
-				this.dogsCapacity.husky = 8
+			this.dogsCapacity.poodle = 15
+			this.dogsCapacity.husky = 8
 
-				this.catsCapacity.persian = 20
-				this.catsCapacity.siamese = 20
+			this.catsCapacity.persian = 20
+			this.catsCapacity.siamese = 20
 
-				this.birdsCapacity.parrot = 30
-				this.birdsCapacity.finch = 40
+			this.birdsCapacity.parrot = 30
+			this.birdsCapacity.finch = 40
 
-				this.fishCapacity.goldfish = 50
-				this.fishCapacity.koi = 20
-				break
-			case area < 150:
-				throw new Error("Not enough space for a pet-shop")
-			default:
-				throw new Error("Area must be provided")
+			this.fishCapacity.goldfish = 50
+			this.fishCapacity.koi = 20
+		} else {
+			throw new Error("Area must be provided")
 		}
 	}
 
